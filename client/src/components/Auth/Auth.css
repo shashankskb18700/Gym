@@ -1,0 +1,111 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300&display=swap"); */
+
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.auth {
+  background-image: url(../../Assets/background.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100vh;
+}
+.flow {
+  width: 40vw;
+  margin-left: 30vw;
+  height: 100vh;
+  /* background-color: white; */
+  color: white;
+  opacity: 0.8s;
+}
+.logo {
+  width: 100%;
+  /* height: 40vw; */
+  padding-top: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  width: 50px;
+  height: 50px;
+  font-size: 30px;
+  font-weight: 600;
+  /* border-radius: 30px; */
+  background-color: rgb(43, 65, 80);
+  transform: rotate(-90deg);
+  font-family: "IBM Plex Sans", sans-serif;
+  clip-path: circle(50% at 50% 50%);
+}
+
+.brandName {
+  font-size: 30px;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: 800;
+  padding-left: 3%;
+}
+
+.login {
+  margin-top: 10%;
+  width: 100%;
+  height: 45vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  background-color: black;
+  color: white;
+  opacity: 0.85;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 20px;
+  border-radius: 10px;
+}
+/* .login input {
+  border: none;
+  border: 1px solid white;
+  background-color: aqua;
+  border-radius: 4px;
+  height: 30px;
+} */
+
+.login button {
+  width: 90%;
+  height: 15%;
+  border-radius: 7px;
+  background-color: rgb(255, 198, 0);
+  border: none;
+}
+.inputs {
+  width: 90%;
+  /* margin-left: 10vw; */
+}
+
+input:focus {
+  /* border-color: inherit;
+  -webkit-box-shadow: none;
+  box-shadow: none; */
+  outline: none;
+}
+.beta {
+  font-family: "IBM Plex Sans", sans-serif;
+  text-align: center;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-around;
+
+  margin-top: 13vh;
+  font-family: "IBM Plex Sans", sans-serif;
+}
