@@ -80,15 +80,16 @@
 } */
 
 .login button {
-  width: 90%;
-  height: 15%;
+  width: 37vw;
+  /* height: 0%; */
   border-radius: 7px;
+
   background-color: rgb(255, 198, 0);
   border: none;
 }
 .inputs {
   width: 90%;
-  /* margin-left: 10vw; */
+  margin-left: 5vw;
 }
 
 input:focus {
@@ -108,4 +109,63 @@ input:focus {
 
   margin-top: 13vh;
   font-family: "IBM Plex Sans", sans-serif;
+}
+
+@media only screen and (min-width: 370px) and (max-width: 500px) {
+  .login {
+    width: 90vw;
+    height: 25vh;
+    margin-left: 13%;
+  }
+  .form {
+    margin-left: 0;
+  }
+  .auth {
+    background: red;
+    width: 100%;
+  }
+  .flow {
+    margin-left: 0vw;
+
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: center;
+  }
+  .logo {
+    margin-left: 73%;
+  }
+  .bestSelf {
+    width: 100%;
+    text-align: "center";
+    font-family: "monospace";
+    font-size: "15px";
+    padding-top: "4%";
+    margin-left: 73%;
+  }
+  .beta {
+    font-family: "IBM Plex Sans", sans-serif;
+    width: 100vw;
+    text-align: "center";
+    /* font-family: "monospace"; */
+    font-size: "15px";
+    padding-top: "4%";
+    margin-top: 50px;
+    /* margin-left: 60%; */
+  }
+  .footer {
+    opacity: 0;
+    z-index: -50;
+  }
+  .codeFlag {
+    height: 10vw;
+  }
+  .content {
+    margin-top: 50%;
+  }
+  .login button {
+    width: 80vw;
+  }
+}
+@media only screen and (min-width: 100px) {
 }

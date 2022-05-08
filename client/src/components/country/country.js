@@ -5,7 +5,10 @@ import { authService } from "../fbase/fbase";
 import "./country.css";
 const Country = () => {
   const [code, setCode] = useState("91");
+  const [number, setNumber] = useState();
+  const [otp, setOtp] = useState("");
   const [open, setOpen] = useState(false);
+  const [extend, SetExtend] = useState(false);
   const [imgUrl, setImgUrl] = useState(
     "https://catamphetamine.gitlab.io/country-flag-icons/3x2/IN.svg"
   );
@@ -23,7 +26,7 @@ const Country = () => {
   const genrateRecaptcha = () => {
     const auth = authService.getAuth();
     window.recaptchaVerifier = new authService.RecaptchaVerifier(
-      "captcha",
+      "recaptcha-container",
       {
         size: "invisible",
         callback: (response) => {
@@ -32,6 +35,44 @@ const Country = () => {
       },
       auth
     );
+  };
+
+  const onChange = (e) => {
+    setNumber(e.target.value);
+  };
+  console.log(number);
+
+  const onClick = () => {
+    SetExtend(true);
+    genrateRecaptcha();
+    let verifier = window.recaptchaVerifier;
+
+    authService
+      .signInWithPhoneNumber(authService.getAuth(), "+91" + number, verifier)
+      .then((conformationResult) => {
+        window.conformationResult = conformationResult;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const verifyOtp = (e) => {
+    let otp = e.target.value;
+    setOtp(otp);
+
+    if (otp.length === 6) {
+      let conformationResult = window.conformationResult;
+      conformationResult
+        .confirm(otp)
+        .then((result) => {
+          const user = result.user;
+          console.log(user);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
   };
 
   return (
@@ -688,22 +729,48 @@ const Country = () => {
           </option>
         </optgroup>
       </select>
-      <div className="content">
-        <div className="codeFlag">
-          <span style={{ width: "90px", fontSize: "80%" }}> +{code}</span>
-          <img
-            src={imgUrl}
-            style={{ width: "30%", marginRight: "8%" }}
-            className="imgCount"
-          ></img>
-        </div>
+      <div className="form">
+        <div className="content">
+          <div className="codeFlag">
+            <span style={{ width: "90px", fontSize: "80%" }}> +{code}</span>
+            <img
+              src={imgUrl}
+              style={{ width: "30%", marginRight: "8%" }}
+              className="imgCount"
+            ></img>
+          </div>
 
-        <div className="phoneInput">
-          <input type="number" maxLength={10}></input>
+          <div className="phoneInput">
+            <input
+              type="number"
+              maxLength={10}
+              value={number}
+              onChange={(e) => onChange(e)}
+            ></input>
+          </div>
         </div>
+        {extend ? (
+          <input
+            type="text"
+            className="butto"
+            value={otp}
+            onChange={(e) => verifyOtp(e)}
+            style={{ width: "30vw" }}
+            placeholder="Enter  OTP"
+          ></input>
+        ) : (
+          <button className="butto" onClick={() => onClick()}>
+            {" "}
+            Login
+          </button>
+        )}
       </div>
 
-      <div className="captcha"></div>
+      <div
+        id="recaptcha-container"
+        className="justify-center flex"
+        // style={{ width: "500px", height: "200px" }}
+      ></div>
     </div>
   );
 };

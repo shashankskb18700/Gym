@@ -19,6 +19,7 @@ const Auth = () => {
             fontSize: "15px",
             paddingTop: "4%",
           }}
+          className="bestSelf"
         >
           Become your best self.
         </div>
@@ -40,8 +41,15 @@ const Auth = () => {
             <Country />
           </div>
 
-          <button>Login</button>
-          <div style={{ textAlign: "right", width: "90%", fontSize: "13px" }}>
+          {/* <button>Login</button> */}
+          <div
+            style={{
+              textAlign: "right",
+              width: "90%",
+              fontSize: "13px",
+              marginTop: "50px",
+            }}
+          >
             {" "}
             Contact Support
           </div>
