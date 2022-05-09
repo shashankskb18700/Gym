@@ -1,6 +1,8 @@
 import React from "react";
 import { authService } from "../fbase/fbase";
+import { Redirect, Link } from "react-router-dom";
 
+import "./Home.css";
 const Home = () => {
   const signOut = () => {
     const auth = authService.getAuth();
@@ -10,8 +12,16 @@ const Home = () => {
   };
   return (
     <div className="home">
-      <h1> home page tussle</h1>
-      <button onClick={() => signOut()}>Sign Out</button>
+      <div className="cont">
+        <h1> HOME PAGE</h1>
+        <h2>TUSSLE</h2>
+
+        <button onClick={() => signOut()}>Sign Out</button>
+
+        <Link to="/auth">
+          <button>Sign in</button>
+        </Link>
+      </div>
     </div>
   );
 };

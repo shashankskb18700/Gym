@@ -101,6 +101,9 @@ input[type="number"] {
   background-color: rgb(255, 198, 0);
   border: none;
 }
+.butto:hover {
+  background-color: white;
+}
 
 .form {
   width: 90vw;
@@ -118,7 +121,7 @@ input[type="number"] {
     /* background-color: white; */
   }
 }
-@media only screen and (min-width: 370px) and (max-width: 500px) {
+@media only screen and (min-width: 310px) and (max-width: 540px) {
   /* .phoneInput input {
     width: 200px;
   } */
@@ -128,7 +131,7 @@ input[type="number"] {
     /* width: 50vw; */
   }
   .phoneInput input {
-    width: 50vw;
+    width: 48vw;
     /* margin-right: 20vw; */
   }
 }

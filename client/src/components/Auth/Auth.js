@@ -1,10 +1,14 @@
 import React from "react";
 import "./Auth.css";
 import Country from "../country/country";
+import tussle from "../../Assets/tussle_video_for_website_2.mp4";
 
 const Auth = () => {
   return (
     <div className="auth">
+      <video className="videoTag" autoPlay loop muted>
+        <source src={tussle} type="video/mp4" />
+      </video>
       <div className="flow">
         <div className="logo">
           <div className="icon">I</div>

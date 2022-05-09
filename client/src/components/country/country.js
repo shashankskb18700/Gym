@@ -48,7 +48,11 @@ const Country = () => {
     let verifier = window.recaptchaVerifier;
 
     authService
-      .signInWithPhoneNumber(authService.getAuth(), "+91" + number, verifier)
+      .signInWithPhoneNumber(
+        authService.getAuth(),
+        "+" + code + number,
+        verifier
+      )
       .then((conformationResult) => {
         window.conformationResult = conformationResult;
       })
